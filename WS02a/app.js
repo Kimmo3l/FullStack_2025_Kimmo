@@ -16,6 +16,8 @@ console.log(stringUtils.upperCase("Hello World!"));
 // Teksti Hello World! tulostuu ensin käänteisessä järjestyksessä ja toisessa tulostuksessa isoilla kirjaimilla
 
 const dateUtils = require('./dateUtils');
-console.log(dateUtils.getCurrentDate);
-console.log(dateUtils.formatDate);
+console.log(dateUtils.getCurrentDate());
+console.log(dateUtils.formatDate());
+
+// Ensin haetaan päivämäärä ja toisessa vaiheessa muotoillaan se lyhyemmäksi ja helpommin luettavaksi
 

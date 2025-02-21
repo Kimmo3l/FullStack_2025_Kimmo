@@ -1,5 +1,9 @@
-//function getCurrentDate(date) {
-    //return new Date();
-//}
+function getCurrentDate(date) {
+    return new Date();
+}
 
-//module.exports = { getCurrentDate, formatDate };
+function formatDate(date) {
+    return new Date().toISOString().split('T')[0];
+}
+
+module.exports = { getCurrentDate, formatDate };
