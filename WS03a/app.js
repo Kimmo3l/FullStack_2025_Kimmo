@@ -4,10 +4,28 @@ const path = require('path');
 const PORT = process.env.PORT || 3000;
 const bodyParser = require('body-parser');
 
+const myLogger = (req, res, next) => {
+    console.log(`${req.method} ${req.url}`);
+    next(); 
+};
+
+const customHeader = (req, res, next) => {
+    if (!req.headers['x-custom-header']) {
+        return res.status(400).json({ error: 'Missing X-Custom-Header' });
+    }
+    next();
+};
+
+app.use(myLogger);
+
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }))
-
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.post('/protected', customHeader, (req, res) => {
+    res.json({ message: 'Access granted!', data: req.body });
+});
 
 app.post('/submit', (req, res) => {
     const receivedData = req.body;
