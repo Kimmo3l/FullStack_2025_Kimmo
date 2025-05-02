@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 require('dotenv').config();
 
 const app = express()
-const PORT = process.env.PORT || 3000;
+const port = process.env.port || 3000;
 
 const uri = process.env.MONGODB_URI + "local_library";
 
@@ -16,6 +16,6 @@ mongoose.connect(uri);
 
 app.use('/api', routes);
 
-app.listen(PORT, () => {
-    console.log(`Server listening on port ${PORT}`)
+app.listen(port, () => {
+    console.log(`Server listening on port ${port}`)
   })
