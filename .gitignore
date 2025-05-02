@@ -1,1 +1,3 @@
-WS03a/node_modules/
+node_modules/
+
+.env
